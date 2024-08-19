@@ -1,4 +1,4 @@
-import { IsEmail, IsNumber, IsString, Min } from 'class-validator';
+import { IsEmail, IsString } from 'class-validator';
 
 export class CreateAlunoDto {
   @IsString()
@@ -13,7 +13,7 @@ export class CreateAlunoDto {
   @IsEmail()
   email: string;
 
-  @IsNumber()
-  @Min(16)
-  idade: number;
+  // @IsNumber()
+  // @Min(16)
+  // anoNascimento: number;
 }

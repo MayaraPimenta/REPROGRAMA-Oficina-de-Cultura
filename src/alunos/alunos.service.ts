@@ -1,26 +1,25 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateAlunoDto } from './dto/create-aluno.dto';
-import { UpdateAlunoDto } from './dto/update-aluno.dto';
+import { Aluno } from './entities/aluno.entity';
+import { AlunosRepository } from './alunos.repository';
 
 @Injectable()
 export class AlunosService {
-  create(createAlunoDto: CreateAlunoDto) {
-    return 'This action adds a new aluno';
-  }
+  constructor(private readonly alunoRepository: AlunosRepository) {}
 
-  findAll() {
-    return `This action returns all alunos`;
-  }
+  cadastrar(createAlunoDto: CreateAlunoDto): void {
+    const aluno = new Aluno(
+      createAlunoDto.nome,
+      createAlunoDto.endereco,
+      createAlunoDto.email,
+      createAlunoDto.telefone,
+    );
 
-  findOne(id: number) {
-    return `This action returns a #${id} aluno`;
-  }
+    if (this.alunoRepository.encontrarAluno(aluno.email)) {
+      throw new NotFoundException('Aluno já cadastrado!');
+    }
 
-  update(id: number, updateAlunoDto: UpdateAlunoDto) {
-    return `This action updates a #${id} aluno`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} aluno`;
+    console.log(aluno);
+    // this.alunoRepository.salvar(aluno);
   }
 }
