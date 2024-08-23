@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { Aluno } from './entities/aluno.entity';
+import { Aluno } from '../domain/aluno';
 import { uuid } from 'uuid';
 
 @Injectable()
-export class AlunosRepository {
+export class AlunoRepository {
   private readonly alunos: Aluno[] = [];
 
   salvar(aluno: Aluno): void {

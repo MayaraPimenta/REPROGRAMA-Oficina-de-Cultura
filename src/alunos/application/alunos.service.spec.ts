@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AlunosService } from './alunos.service';
-import { AlunosRepository } from './alunos.repository';
+import { AlunosRepository } from '../alunos.repository';
 import { NotFoundException } from '@nestjs/common';
 
 describe('AlunosService', () => {

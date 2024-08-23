@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Oficina de cultura",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

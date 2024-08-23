@@ -7,7 +7,7 @@ export class Aluno {
     public endereco: string,
     public telefone: string,
     public email: string,
-  ) {
-    this.cursos = [];
-  }
+  ) {}
 }
+
+//o nest ve a entidade como uma representação da tabela no código - uma entidade persiste o dominio modela
